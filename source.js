@@ -8,16 +8,22 @@ app.controller('ctrl', function($scope) {
     $scope.brigette = 2;
     $scope.lele = 3;
     $scope.ball = 4;
+    
+    $scope.compute = function(x, n, nn) {
+        var odds = 1 - $scope.hyp(x, n, nn);
+        odds -= (1 - $scope.hyp($scope.brigette, 6, 60));
+        return (100 * odds).toFixed(2);
+    }
 
     $scope.hyp = function(x, n, nn) {
         var b = 0, l = 0, ba = 0;
         if ($scope.brigette != "")
             b = parseInt($scope.brigette);
         
-        if ($scope.lele != "" && $scope.brigette != 0)
+        if ($scope.lele != "" && $scope.brigette != "")
             l = parseInt($scope.lele);
         
-        if ($scope.ball != "" && $scope.lele != "" && $scope.brigette != 0)
+        if ($scope.ball != "" && $scope.lele != "" && $scope.brigette != "")
             ba = parseInt($scope.ball);
         
         var m = b + l + ba;
@@ -49,6 +55,6 @@ app.controller('ctrl', function($scope) {
             s = s * (1 - mz / (nn - k));
             k = k + 1;
         }
-        return ((1 - s) * 100).toFixed(2);
+        return s;
     }
 });
