@@ -11,22 +11,41 @@ app.controller('ctrl', function($scope) {
     
     $scope.compute = function(x, n, nn) {
         var odds = 1 - $scope.hyp(x, n, nn);
-        odds -= (1 - $scope.hyp($scope.brigette, 6, 60));
+        // initial odds are the odds of having Brigette, Ultra Ball, or Tapu Lele-GX in starting hand
+        
+        odds -= (1 - $scope.hyp($scope.brigette, 6, 60));  
+        // odds of prizing all Brigette
+        
+        if ($scope.lele > 1)
+            odds -= ((1 - $scope.hyp($scope.lele, 7, 60)) * $scope.hyp($scope.lele - 1, 6, 60))
+        // odds of starting Lele and prizing the other(s)
+        
         return (100 * odds).toFixed(2);
+        // return the odds in a percentage with floating point 2
     }
 
     $scope.hyp = function(x, n, nn) {
         var b = 0, l = 0, ba = 0;
         if ($scope.brigette != "")
             b = parseInt($scope.brigette);
+        // if Brigette count is valid, set b (Brigette count) to user input
+        // if it's not valid, b will stay equal to zero instead of trying to parseInt() ""
         
         if ($scope.lele != "" && $scope.brigette != "")
             l = parseInt($scope.lele);
+        // if Lele count is valid, set l (Lele count) to user input
+        // if it's not valid, l will stay equal to zero instead of trying to parseInt() ""
         
         if ($scope.ball != "" && $scope.lele != "" && $scope.brigette != "")
             ba = parseInt($scope.ball);
+        // if Ultra Ball count is valid, set ba (Ultra Ball count) to user input
+        // if it's not valid, ba will stay equal to zero instead of trying to parseInt() ""
         
         var m = b + l + ba;
+        // m, the total valid sample size, is equal to the sum of the Brigette count, Lele count, and Ultra Ball count
+        
+        // The rest of this algorithm is from https://gist.github.com/trevnorris/c39ac96740842e05303f
+        // implementation found at http://www.math.ucla.edu/~tom/distributions/Hypergeometric.html
         
         var nz, mz;
         // best to have n<m
