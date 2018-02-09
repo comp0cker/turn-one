@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Turn 1 calc</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- jQuery -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <!-- Angular -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <link rel="stylesheet" HREF="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS -->
+        
+        <script src="source.js"></script>
+    </head>
+    <body class="container">
+        <div ng-app="app" ng-controller="ctrl">
+            <h3>Odds of starting Brigette</h3>
+            <h5>Have fun ;)</h5><br>
+            <div class="input-field">
+                <input id="brigette" type="text" ng-model="brigette">
+                <label for="brigette">Number of Brigette</label>
+            </div>
+            <div class="input-field">
+                <input id="lele" type="text" ng-model="lele">
+                <label for="lele">Number of Tapu Lele-GX</label>
+            </div>
+            <div class="input-field">
+                <input id="ball" type="text" ng-model="ball">
+                <label for="ball">Number of Ultra Ball</label>
+            </div>
+            <p>{{hyp(x, n, nn)}}% chance you'll have an out to a turn one Brigette</p>
+        </div>
+    </body>
+</html>
