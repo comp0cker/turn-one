@@ -14,10 +14,10 @@ app.controller('ctrl', function($scope) {
         if ($scope.brigette != "")
             b = parseInt($scope.brigette);
         
-        if ($scope.lele != "" && $scope.brigette != "")
+        if ($scope.lele != "" && $scope.brigette != 0)
             l = parseInt($scope.lele);
         
-        if ($scope.ball != "" && $scope.lele != "" && $scope.brigette != "")
+        if ($scope.ball != "" && $scope.lele != "" && $scope.brigette != 0)
             ba = parseInt($scope.ball);
         
         var m = b + l + ba;
