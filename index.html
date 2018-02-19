@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Turn 1 calc</title>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <!-- jQuery -->
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <!-- Angular -->
+<head>
+    <meta charset="utf-8" />
+    <title>Chart.js demo</title>
+    <!-- import plugin script -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    <!-- Chart.js -->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <link rel="stylesheet" HREF="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Materialize CSS -->
-        
-        <script src="source.js"></script>
-    </head>
-    <body class="container">
-        <div ng-app="app" ng-controller="ctrl">
-            <h3>Odds of starting Brigette</h3>
-            <h5>Have fun ;)</h5><br>
-            <div class="input-field">
-                <input id="brigette" type="text" ng-model="brigette">
-                <label for="brigette">Number of Brigette</label>
-            </div>
-            <div class="input-field">
-                <input id="lele" type="text" ng-model="lele">
-                <label for="lele">Number of Tapu Lele-GX</label>
-            </div>
-            <div class="input-field">
-                <input id="ball" type="text" ng-model="ball">
-                <label for="ball">Number of Ultra Ball</label>
-            </div>
-            <h5>{{compute(x, n, nn)}}% chance you'll have an out to a turn one Brigette</h5>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- Angular -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" HREF="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+
+    <script src="source.js"></script>
+</head>
+
+<body class="container">
+
+    <div ng-app="app" ng-controller="ctrl" id="angular">
+        <h3>Odds of starting Brigette</h3>
+        <h5>Have fun ;)</h5><br>
+        <div class="input-field">
+            <input id="brigette" type="text" ng-model="brigette">
+            <label for="brigette">Number of Brigette</label>
         </div>
-        
-        <p><a href="https://github.com/comp0cker/turn-one">Open Sourced</a></p>
-    </body>
+        <div class="input-field">
+            <input id="lele" type="text" ng-model="lele">
+            <label for="lele">Number of Tapu Lele-GX</label>P
+        </div>
+        <div class="input-field">
+            <input id="ball" type="text" ng-model="ball">
+            <label for="ball">Number of Ultra Ball</label>
+        </div>
+        <h5>{{total(0)}}% chance you'll have an out to a turn one Brigette</h5>
+        <p>{{total(1)}}% chance you'll get it with one more out</p>
+        <p>{{total(-1)}}% chance you'll get it with one less out</p>
+    </div>
+
+    <p><a href="https://github.com/comp0cker/turn-one">Open Sourced</a></p>
+</body>
+
 </html>
